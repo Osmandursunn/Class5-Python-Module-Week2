@@ -1,71 +1,44 @@
-#Name Dongusu 
-#Be sure that names have only letters(Uppercase or lowcase). No numbers
-# No characters or any other thing.. Justletters.. Program should ask for new input if the input is not valid
-#There must not be a name twice in the list. Then the program should start them for the same name
+### List Comprehensions
+
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+
+    print ([[i, j, k] for i in range (x+1) for j in range (y+1) for k in range (z+1) if i + j + k != n])
 
 
-while True:
-    name=input("Name *(Just letters) (quit 1):" )
-    if name in contacts_list.keys():
-        ask=input("Do you want to add number to this name y(yes) or n(no)")
-        print(ask)
-        if ask!='y':
-            break
-    
-    if name=='1':
-        break
-    elif name.isalpha()== False:
-        print("Just Letters...")
-        continue
-    else:
-        break
-    
-    #Phone numbers must have 10 digits.
-    #Otherwise the program shouldn't accept the input and should ask the user to enter the number again
-    
-    while True:
-        number=input("Number")
-        if (len(number)) != 10:
-            print("Please 10 digits..")
-            continue
-        elif (number.isdigit()==False):
-            print("Please only digits")
-        else:
-            break           
-        """elif menu=="3": #Add
-        while True:
-            name=input("Name *(Just letters) (quit 1): ")
-            print(name)
-            if name=="1":
-                break
-            elif name.isalpha==(False):
-                print("Just letters..")
-                continue
-            else:
-                break"""
-        while True:
-            if name in contacts_list.keys():
-                print("This name added already...")
-                ask=input("Do you want to add number to this name? y(yes) or n(no)")
-                print(ask)
-                if ask != y :
-                    break
-            number=input("Number*(Just digits)(quit 1):")
-            print(number)
-            if number=='1':
-                break
-            elif (len(number)!=10)or(number.isdigit()==False):
-                print("Numbers must have 10 digits or Just Digit...")
-                continue
-            else:
-                if name in contacts_list.keys():
-                    contacts_list(name).append(number)
-                    ask_imp=input("If the user is important click 1 or click any other key:")
-                    print(ask_imp)
-                    contacts_list[name]=[number]
-                    if ask_imp!='1':
-                        break
-                    else:
-                        important_contact_list[name]=[number]
-                        break
-                                                                  
+### Tuples
+
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+
+    tup = ()
+    for x in integer_list:
+        tup += (x,)
+    print(hash(tup))
+
+
+### Nested Lists
+
+list = []
+second_lowest_names = []
+scores = set ()
+
+for x in range (int(input())):
+    name = input()
+    score = float(input())
+    list.append([name, score])
+    scores.add(score)
+
+
+second_lowest_names = sorted(scores)[1]
+
+for name, score in list:
+    if score == second_lowest_names:
+        second_lowest_names.append(name)
+
+for name in sorted(second_lowest_names):
+     print(name, end='\n')
