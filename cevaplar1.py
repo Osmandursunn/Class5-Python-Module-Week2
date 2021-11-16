@@ -1,6 +1,6 @@
-#Telefon Rehberi olusturma
+#Contact List
 
-def print_menu(): #def print _ menu ile ekrana menuleri yazdiriyoruz
+def print_menu(): #with def print_menu we can add menu options
     print("______PHONE BOOK_________")                                                     
     print('1. Show Phone Numbers')
     print('2. Add a Phone Number')                                                                           
@@ -9,7 +9,7 @@ def print_menu(): #def print _ menu ile ekrana menuleri yazdiriyoruz
     print('5. Show Important numbers ')
     print()
 
-numbers = {} #telefondaki isimleri ve numaralari iceren bir dic tanimladik 
+numbers = {} # need a dict voor names and numbers which the contact list has 
 numbers2=()
 l=list(numbers2)
 menu_choice = 0
@@ -24,22 +24,22 @@ while True:
     elif menu_choice == 2:
         print("Add Name and Number")     
         name = input("Name: ")
-        phone = int(input("Number: "))                                                             #Sadece sayı girişi kabul edecek
-        if len(str(phone))==10 and name.isalpha():                                                 #Telefon numarasını sadece 10 karakter girebilir ve ismi sadece küçük veya büyük harflerden oluşabilir.
+        phone = int(input("Number: "))                                                             #Program accept just digits 
+        if len(str(phone))==10 and name.isalpha():                                                 #Phone number must max 10 digits and it must upper or lowercase
             numbers[name] = phone
-            answer=input("Girdiğiniz veriler önemli ise 'Y' harfine tıklayın?")                    #Girilen bilgiler önemli ise ve bilgilerin değişmemesini istiyorsa sözlük sonradan değiştirilebileceği için veriler ayrı bir tuple da daha saklanır.
+            answer=input("If number is important push Y")                                           #If the person and number is important then program keep the datas safer pleace with in another the tuple file to not to these datas change.
             if answer=='Y':
                 l.append(numbers)
             else:
                 continue
         else:
-            print("lütfen telefon numarasını 10 haneli ve Adınızı sadece harflerden oluşacak şekilde giriniz")
+            print("Phone number must 10 digit and names must just letter be created ")
 
     elif menu_choice == 3:
-        name = input("Düzenlemek istediğiniz ismi giriniz: ")
-        newphone=input("Yeni numarayı giriniz:")
+        name = input("Please add a name which you edit: ")
+        newphone=input("Please add a newphone:")
         print("Edit Number")
-        newname=input("Yeni ismi giriniz:")
+        newname=input("Please add a new name:")
         if name in numbers:
             numbers[newname]=newphone
             del(numbers[name])
